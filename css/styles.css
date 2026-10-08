@@ -1,0 +1,511 @@
+/* ==========================================================================
+   FRANCO SÁNCHEZ - PRESS KIT
+   Índice:
+     1. Variables (colores y tipografías)
+     2. Base
+     3. Portada
+     4. Navegación
+     5. Secciones y títulos
+     6. Bio
+     7. SoundCloud
+     8. Videos
+     9. Tarjetas de canales
+    10. Carrusel de fotos
+    11. Contacto y pie
+    12. Celulares
+   ========================================================================== */
+
+
+/* ---------- 1. VARIABLES ----------
+   Para cambiar el color principal, modificá --red. */
+:root {
+  --bg:   #09090c;   /* fondo de la página */
+  --card: #14141a;   /* fondo de tarjetas */
+  --fg:   #f3f1f4;   /* texto principal */
+  --mut:  #a29faa;   /* texto secundario */
+  --line: #2a2a33;   /* líneas y bordes */
+  --red:  #ff2d46;   /* color de acento */
+
+  --font-title: "Unbounded", system-ui, sans-serif;
+  --font-body:  "DM Sans", system-ui, sans-serif;
+
+  color-scheme: dark;
+}
+
+
+/* ---------- 2. BASE ---------- */
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 12px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 17px/1.65 var(--font-body);
+}
+
+a { color: inherit; }
+
+img { max-width: 100%; }
+
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+
+/* ---------- 3. PORTADA ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Resplandor rojo animado detrás de la portada */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 70vmax;
+  height: 70vmax;
+  background: radial-gradient(closest-side, rgba(255, 45, 70, .38), transparent);
+  animation: breathe 7s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes breathe {
+  from { opacity: .45; transform: translate(6%, 0); }
+  to   { opacity: 1;   transform: translate(-4%, 6%); }
+}
+
+.hero__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 36px;
+  align-items: end;
+  padding-top: 48px;
+}
+
+.hero__name {
+  font: 800 clamp(44px, 10vw, 96px) / .95 var(--font-title);
+  letter-spacing: -.03em;
+  margin: 0 0 22px;
+}
+
+.hero__tag {
+  font: 800 clamp(20px, 3.6vw, 30px) / 1.2 var(--font-title);
+  letter-spacing: -.02em;
+  margin: 0 0 16px;
+}
+
+.hero__lead {
+  color: var(--mut);
+  max-width: 40ch;
+  margin: 0 0 26px;
+}
+
+.hero__photo img {
+  display: block;
+  width: 100%;
+  height: auto;               /* necesario para que se respete el 1:1 */
+  aspect-ratio: 1 / 1;        /* foto cuadrada */
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 6px;
+  background: #0b0b10;
+}
+
+.hero__text { padding-bottom: 44px; }
+
+/* Botones */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 24px;
+  border: 2px solid var(--red);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background: var(--red);
+  color: #fff;
+}
+
+.btn:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--bg);
+}
+
+
+/* ---------- 4. NAVEGACIÓN ---------- */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--mut);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav a { text-decoration: none; }
+.nav a:hover { color: var(--red); }
+
+
+/* ---------- 5. SECCIONES Y TÍTULOS ---------- */
+.section {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section--last { border-bottom: 0; }
+
+h2 {
+  font: 800 clamp(26px, 6vw, 40px) / 1.08 var(--font-title);
+  letter-spacing: -.025em;
+  margin: 0 0 10px;
+}
+
+.section__sub {
+  color: var(--mut);
+  max-width: 56ch;
+  margin: 0 0 30px;
+}
+
+.subhead {
+  margin: 38px 0 12px;
+  font: 500 15px / 1.3 var(--font-body);
+  color: var(--mut);
+}
+
+
+/* ---------- 6. BIO ---------- */
+.bio {
+  display: grid;
+  grid-template-columns: 1fr .7fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.bio p {
+  max-width: 62ch;
+  margin: 0 0 18px;
+}
+
+.bio__photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 40%;
+  border-radius: 6px;
+}
+
+/* Datos rápidos */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  margin: 34px 0 0;
+}
+
+.facts div {
+  padding-left: 14px;
+  border-left: 3px solid var(--red);
+}
+
+.facts dt { font-size: 14px; color: var(--mut); }
+.facts dd { margin: 0; font-weight: 700; }
+
+/* Productoras */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 8px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  font-weight: 700;
+}
+
+/* Artistas (nombres grandes, alternando color) */
+.lineup {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: 800 clamp(22px, 4.6vw, 38px) / 1.25 var(--font-title);
+  letter-spacing: -.02em;
+}
+
+.lineup li:nth-child(even) { color: var(--red); }
+
+
+/* ---------- 7. SOUNDCLOUD ---------- */
+.sc-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  text-decoration: none;
+}
+
+.sc-card:hover { border-color: var(--red); }
+
+.sc-card__play {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+/* Triángulo de "play" dibujado con bordes */
+.sc-card__play::after {
+  content: "";
+  margin-left: 6px;
+  border-left: 20px solid #fff;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+.sc-card__text { flex: 1; min-width: 220px; }
+.sc-card__text strong { display: block; font-size: 20px; }
+.sc-card__text span { color: var(--mut); }
+
+
+/* ---------- 8. VIDEOS ---------- */
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 320px));
+  gap: 24px;
+  justify-content: start;
+}
+
+/* Marco vertical 9:16 (formato Shorts) */
+.video__frame {
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+/* Portada del video (miniatura + botón play). Al tocarla se carga el video */
+.video__cover {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+}
+
+.video__cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video__cover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68px;
+  height: 68px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M9 6.5v11l9-5.5z'/%3E%3C/svg%3E") center / 60% no-repeat;
+}
+
+.video__cover:hover::after { background-color: #fff; }
+
+.video__frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video__link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--mut);
+  font-size: 15px;
+}
+
+.video__link:hover { color: var(--red); }
+
+
+/* ---------- 9. TARJETAS DE CANALES ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  display: block;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  text-decoration: none;
+}
+
+a.card:hover { border-color: var(--red); }
+
+.card strong {
+  display: block;
+  margin-bottom: 6px;
+  font: 800 19px / 1.2 var(--font-title);
+}
+
+.card span { display: block; color: var(--mut); font-size: 15px; }
+
+.card em {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-style: normal;
+  color: var(--red);
+}
+
+
+/* ---------- 10. CARRUSEL DE FOTOS ----------
+   Funciona con scroll horizontal (se desliza con el dedo)
+   más botones y puntitos que maneja js/main.js. */
+.carousel { position: relative; }
+
+.carousel__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;            /* oculta la barra en Firefox */
+  border-radius: 10px;
+}
+
+.carousel__track::-webkit-scrollbar { display: none; }  /* oculta la barra en Chrome/Safari */
+
+.carousel__slide {
+  flex: 0 0 100%;
+  margin: 0;
+  scroll-snap-align: center;
+}
+
+.carousel__slide img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: var(--pos, center);   /* encuadre ajustable por foto */
+  background: var(--card);
+}
+
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(9, 9, 12, .65);
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.carousel__btn:hover { background: var(--red); }
+.carousel__btn--prev { left: 12px; }
+.carousel__btn--next { right: 12px; }
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--line);
+  cursor: pointer;
+}
+
+.carousel__dot.is-active { background: var(--red); }
+
+
+/* ---------- 11. CONTACTO Y PIE ---------- */
+.contact__mail {
+  display: inline-block;
+  margin-bottom: 26px;
+  font: 800 clamp(16px, 4.4vw, 28px) / 1.2 var(--font-title);
+  word-break: break-all;
+}
+
+.footer {
+  padding: 30px 0;
+  color: var(--mut);
+  font-size: 14px;
+}
+
+
+/* ---------- 12. CELULARES (pantallas angostas) ---------- */
+@media (max-width: 760px) {
+  .hero__grid,
+  .bio { grid-template-columns: 1fr; }
+
+  /* En el celular, la foto de portada va arriba (siempre cuadrada) */
+  .hero__photo { order: -1; }
+
+  .carousel__slide img { aspect-ratio: 4 / 5; }
+}
+
+
+/* ---------- Accesibilidad: sin animaciones si el usuario lo pide ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero::before { animation: none; }
+}

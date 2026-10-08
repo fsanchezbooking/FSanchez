@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Franco Sánchez | DJ Indie Dance | Press Kit</title>
+  <meta name="description" content="Franco Sánchez, DJ de General Roca (Alto Valle). Indie Dance oscuro, groove pesado y drops bien marcados.">
+  <meta name="theme-color" content="#09090c">
+
+  <!-- Tipografías (Google Fonts) -->
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos: todo el diseño está en css/styles.css -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PORTADA
+       Para cambiar la foto: reemplazá assets/hero.jpg (mismo nombre).
+       ============================================================ -->
+  <header class="hero">
+    <div class="container hero__grid">
+
+      <div class="hero__text">
+        <h1 class="hero__name">Franco<br>Sánchez</h1>
+        <p class="hero__tag">Indie Dance oscuro. Groove pesado. Drops bien marcados.</p>
+        <p class="hero__lead">DJ de General Roca, con base en el Alto Valle.</p>
+
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#soundcloud">Escuchar</a>
+          <a class="btn" href="#contacto">Contratar</a>
+        </div>
+      </div>
+
+      <div class="hero__photo">
+        <img src="assets/hero.jpg" alt="Retrato de Franco Sánchez">
+      </div>
+
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Menú de navegación: cada href coincide con el id de una sección -->
+    <nav class="nav" aria-label="Secciones">
+      <a href="#bio">Bio</a>
+      <a href="#soundcloud">SoundCloud</a>
+      <a href="#videos">Videos</a>
+      <a href="#canales">Producciones en otros canales</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- ============================================================
+         BIO
+         ============================================================ -->
+    <section id="bio" class="section">
+      <div class="bio">
+        <div>
+          <h2>Bio</h2>
+          <p>Franco Sánchez es un DJ de General Roca, con base en el Alto Valle, con un sonido centrado en el Indie Dance oscuro, groove pesado y drops bien marcados.</p>
+          <p>También incursiona en el Progressive House y el Melodic Techno, aunque su identidad se apoya principalmente en ritmos oscuros, sonidos profundos y una fuerte presencia del groove.</p>
+          <p>Ha sumado experiencias en clubes del Alto Valle y presentaciones como invitado, además de experiencias en Buenos Aires Capital. Ha trabajado junto a productoras como Black Beat, Natural Swing, B2B Sessions y One More, y ha compartido cabina con artistas como Martin Angrissano, Caitto, Gueva, Mayro y Nicolás Van Orton.</p>
+          <p>Su propuesta busca un balance entre groove, energía y una estética underground, consolidando una identidad propia dentro de la escena regional.</p>
+        </div>
+        <img class="bio__photo" src="assets/bio.jpg" alt="Franco Sánchez mezclando en un club">
+      </div>
+
+      <!-- Datos rápidos -->
+      <dl class="facts">
+        <div><dt>Sonido</dt><dd>Indie Dance oscuro</dd></div>
+        <div><dt>También toca</dt><dd>Progressive House y Melodic Techno</dd></div>
+        <div><dt>Base</dt><dd>General Roca, Alto Valle</dd></div>
+        <div><dt>Presentaciones</dt><dd>Clubes del Alto Valle y Buenos Aires Capital</dd></div>
+      </dl>
+
+      <h3 class="subhead">Productoras con las que trabajó</h3>
+      <ul class="chips">
+        <li>Black Beat</li>
+        <li>Natural Swing</li>
+        <li>B2B Sessions</li>
+        <li>One More</li>
+      </ul>
+
+      <h3 class="subhead">Compartió cabina con</h3>
+      <ul class="lineup">
+        <li>Martin Angrissano</li>
+        <li>Caitto</li>
+        <li>Gueva</li>
+        <li>Mayro</li>
+        <li>Nicolás Van Orton</li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         SOUNDCLOUD
+         Para cambiar el link: modificá el href de la tarjeta.
+         ============================================================ -->
+    <section id="soundcloud" class="section">
+      <h2>SoundCloud</h2>
+      <p class="section__sub">Sets y producciones de Franco, directo desde su perfil.</p>
+
+      <a class="sc-card" href="https://soundcloud.com/franco-sanchez-24" target="_blank" rel="noopener">
+        <span class="sc-card__play" aria-hidden="true"></span>
+        <span class="sc-card__text">
+          <strong>Franco Sánchez en SoundCloud</strong>
+          <span>Escuchá todos sus sets y temas.</span>
+        </span>
+        <span class="btn btn--primary">Abrir perfil</span>
+      </a>
+    </section>
+
+    <!-- ============================================================
+         VIDEOS (YouTube)
+         Los videos se cargan solos desde js/main.js, en la lista VIDEOS.
+         Para agregar uno, mirá las instrucciones en ese archivo.
+         ============================================================ -->
+    <section id="videos" class="section">
+      <h2>Videos</h2>
+      <p class="section__sub">Franco en cabina. Tocá el video para reproducirlo.</p>
+      <div class="videos" id="videos-grid"></div>
+    </section>
+
+    <!-- ============================================================
+         PRODUCCIONES EN OTROS CANALES
+         Las tarjetas se cargan desde js/main.js, en la lista CANALES.
+         ============================================================ -->
+    <section id="canales" class="section">
+      <h2>Producciones en otros canales</h2>
+      <p class="section__sub">Sus sets y producciones, subidos por las productoras con las que trabajó.</p>
+      <div class="cards" id="canales-grid"></div>
+    </section>
+
+    <!-- ============================================================
+         FOTOS (carrusel)
+         Para AGREGAR una foto:
+           1. Guardala en la carpeta assets/ (ej: assets/g-nueva.jpg)
+           2. Copiá uno de los bloques <figure> de abajo y pegalo al final
+           3. Cambiá el src y el alt. Los puntitos se crean solos.
+         Para ajustar el encuadre usá --pos (ej: center 30% = más arriba).
+         ============================================================ -->
+    <section id="fotos" class="section">
+      <h2>Fotos</h2>
+      <p class="section__sub">En cabina.</p>
+
+      <div class="carousel">
+        <div class="carousel__track" id="carousel-track" tabindex="0" aria-label="Galería de fotos">
+
+          <figure class="carousel__slide">
+            <img src="assets/g-pantallas.jpg" alt="Franco Sánchez en cabina con su nombre en las pantallas" loading="lazy">
+          </figure>
+
+          <figure class="carousel__slide">
+            <img src="assets/g-verde.jpg" alt="Franco Sánchez mezclando con luz verde" loading="lazy">
+          </figure>
+
+          <figure class="carousel__slide">
+            <img src="assets/g-azul.jpg" alt="Franco Sánchez en cabina con luces azules" loading="lazy">
+          </figure>
+
+          <figure class="carousel__slide">
+            <img src="assets/g-exterior.jpg" alt="Franco Sánchez mezclando al aire libre de noche" style="--pos: center 42%" loading="lazy">
+          </figure>
+
+        </div>
+
+        <button class="carousel__btn carousel__btn--prev" id="carousel-prev" type="button" aria-label="Foto anterior">&#8249;</button>
+        <button class="carousel__btn carousel__btn--next" id="carousel-next" type="button" aria-label="Foto siguiente">&#8250;</button>
+        <div class="carousel__dots" id="carousel-dots"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACTO
+         ============================================================ -->
+    <section id="contacto" class="section section--last">
+      <h2>Contacto</h2>
+      <p class="section__sub">Fechas, colaboraciones y prensa.</p>
+
+      <a class="contact__mail" href="mailto:fsanchezbooking@gmail.com">fsanchezbooking@gmail.com</a>
+
+      <div class="btn-row">
+        <a class="btn btn--primary" href="mailto:fsanchezbooking@gmail.com">Escribir por mail</a>
+        <a class="btn" href="https://www.instagram.com/frsanchez_/" target="_blank" rel="noopener">Instagram @frsanchez_</a>
+        <a class="btn" href="https://soundcloud.com/franco-sanchez-24" target="_blank" rel="noopener">SoundCloud</a>
+      </div>
+    </section>
+
+    <footer class="footer">© 2026 Franco Sánchez</footer>
+  </div>
+
+  <!-- Funcionalidad: carrusel, videos y tarjetas de canales -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
